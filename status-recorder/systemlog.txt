@@ -1,0 +1,20 @@
+
+OS: Windows_NT
+Free Memory: 1052450816
+Total Memory: 8316043264
+---------------------------
+
+OS: Windows_NT
+Free Memory: 1052385280
+Total Memory: 8316043264
+---------------------------
+
+OS: Windows_NT
+Free Memory: 1041072128
+Total Memory: 8316043264
+---------------------------
+
+OS: Windows_NT
+Free Memory: 1046732800
+Total Memory: 8316043264
+---------------------------
