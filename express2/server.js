@@ -1,5 +1,5 @@
 import express from "express";
-import {logfun,uservalidation} from "./middleware.js"
+import { logfun,userValidation,tokenValidation } from "./middleware.js"
 import { config } from "dotenv";
 
 const app = express();
@@ -27,8 +27,8 @@ app.get("/data", (req, res) => {
     });
 });
 
-app.post("/data",uservalidation, (req, res) => {
-
+app.post("/data",userValidation, (req, res) => {
+    
     let newuser = {
         id: data.length + 1,
         ...req.body
@@ -80,6 +80,12 @@ app.delete("/data/:id",(req,res)=>{
         message: "User Deleted",
         user: userDel
     })
+})
+
+app.get("/data/auth",tokenValidation,(req,res)=>{
+    res.status(200).json({
+        message: "token valid"
+    });
 })
 
 app.listen(port, () => {

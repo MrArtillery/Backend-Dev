@@ -7,8 +7,11 @@ let logfun = (req,res,next)=>{
     console.log(logText)
     next()
 }
-let uservalidation = (req,res,next)=>{
-    const {username, password}= req.body;
+
+
+let userValidation = (req,res,next)=>{
+    const { username, password } = req.body;
+
     if(!username || !password){
         return res.status(400).json({
             message: "password and username required"
@@ -20,8 +23,19 @@ let uservalidation = (req,res,next)=>{
             message: "password is small"
         })
     }
+    next()
 }
 
-export {
-    logfun,uservalidation
+let tokenValidation = (req,res,next)=>{
+    const { token } = req.body;
+
+    if(token === "admin123"){
+        next();
+    }
+    else{
+        return res.status(401).json({
+            message : "unauhtorized"
+        })
+    }
 }
+export { logfun, userValidation, tokenValidation }
